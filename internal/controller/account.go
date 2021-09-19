@@ -37,5 +37,24 @@ func CreateAccount(w http.ResponseWriter, r *http.Request) {
 }
 
 func DeleteAccount(w http.ResponseWriter, r *http.Request) {
+	var post daos.Account
+	var err *daos.Error
+	post.Username, err = services.AuthenticateRequest(r)
+	if err != nil {
+		w.WriteHeader(400)
+		json.NewEncoder(w).Encode(err)
+		return
+	}
+
+	resp, accDelErr := services.DeleteAccount(post.Username)
+	if accDelErr != nil {
+		w.WriteHeader(500)
+		json.NewEncoder(w).Encode(accDelErr)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(200)
+	json.NewEncoder(w).Encode(resp)
 
 }
