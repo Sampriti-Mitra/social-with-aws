@@ -15,11 +15,13 @@
 Find the postman collection in the root of the directory social.postman_collection.json
 and import it in postman
 
-## III. What to expect from this project
+## III. What to expect from this SDK
 1. Create an account
 2. Create a post from an account, send header as the account-id
 3. Write a comment from an account on a post
 4. Fetch all posts from all accounts
+5. Delete an account and the corresponding posts, comments, comments on posts
+6. Fetch the image_url from s3 bucket on posts
 
 
 
