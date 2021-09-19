@@ -22,4 +22,5 @@ type CommmentFetch struct {
 	CommentContent *string `json:"comment_content"`
 	CommentUser    *string `json:"comment_user"`
 	CommentDate    *string `json:"comment_created_at"`
+	PostId         *string `json:"post_id"`
 }

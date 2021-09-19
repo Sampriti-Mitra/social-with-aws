@@ -10,10 +10,10 @@ import (
 
 func AuthenticateRequest(r *http.Request) (string, *daos.Error) {
 	accountID := r.Header.Get("X-Account-Id")
-	var id string
-	err := db.DbDriver.QueryRow(`select username from accounts where id = ?`, accountID).Scan(&id)
+	var username string
+	err := db.DbDriver.QueryRow(`select username from accounts where id = ?`, accountID).Scan(&username)
 	if err == sql.ErrNoRows {
-		return accountID, &daos.Error{errors.New("No such account").Error()}
+		return username, &daos.Error{errors.New("No such account").Error()}
 	}
-	return accountID, nil
+	return username, nil
 }
