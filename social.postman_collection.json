@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "664ab95f-1407-4648-82ae-b2829facba32",
+		"name": "social",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"kid laroi\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/account",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Account-Id",
+						"value": "0ece8d21-3093-b71d-5a3d-11ecd58b268c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "caption",
+							"value": "call me by your name",
+							"type": "text"
+						},
+						{
+							"key": "image_url",
+							"type": "file",
+							"src": "/Users/sampriti.mitra/Downloads/5ghiq0.jpg"
+						},
+						{
+							"key": "creator",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/post",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Posts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Account-Id",
+						"value": "691a224b-b92e-67bb-485b-e154b9d06893",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/post",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comment on Post",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Account-Id",
+						"value": "691a224b-b92e-67bb-485b-e154b9d06893",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\":\"yeah dude\",\n    \"post_id\" : \"c04aca54-b642-4041-6d7a-42f0750e9b71\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/comment",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"comment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
